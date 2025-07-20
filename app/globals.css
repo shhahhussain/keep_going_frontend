@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 0 84% 60%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 0 0% 10%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 0 84% 60%;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-family: "Inter", sans-serif;
+}
+
+.font-impact {
+  font-family: "Impact", "Arial Black", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+/* Custom slider styling */
+[data-radix-slider-track] {
+  background-color: rgb(55, 65, 81);
+  height: 10px;
+  border-radius: 5px;
+}
+
+[data-radix-slider-range] {
+  background-color: rgb(239, 68, 68);
+  border-radius: 5px;
+}
+
+[data-radix-slider-thumb] {
+  background-color: rgb(239, 68, 68);
+  border: 3px solid rgb(239, 68, 68);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+[data-radix-slider-thumb]:hover {
+  background-color: rgb(220, 38, 38);
+  border-color: rgb(220, 38, 38);
+  transform: scale(1.1);
+}
+
+[data-radix-slider-thumb]:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
+}
+
+/* Switch styling for brutal mode */
+[data-state="checked"] {
+  background-color: rgb(239, 68, 68) !important;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
