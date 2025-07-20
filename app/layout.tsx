@@ -10,9 +10,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.dev",
+  title: "KEEP GOING | Motivation Reminder App",
+  description: "A raw, personal motivation app that sends you reminders and brutal messages via WhatsApp. No excuses. Just results.",
+  generator: "KEEP GOING App",
 }
 
 export default function RootLayout({
@@ -22,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon2.ico" type="image/x-icon" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
