@@ -72,7 +72,6 @@ export default function KeepGoingApp() {
         interval: Number(interval),
         brutal_mode: false,
         brutal_messages: [],
-        channel: channel,
       })
       setIsActive(true)
       setConfirmationMessage("You just made a promise to yourself. Break it, and it breaks you.")
