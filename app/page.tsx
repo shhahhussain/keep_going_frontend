@@ -9,7 +9,7 @@ import { isValidPhoneNumber } from "libphonenumber-js"
 
 export default function SignInPage() {
   const [phoneNumber, setPhoneNumber] = useState("")
-  const [channel, setChannel] = useState<"whatsapp" | "sms">("whatsapp")
+  const [channel, setChannel] = useState<"whatsapp">("whatsapp")
   const [isValid, setIsValid] = useState(false)
   const [waitlistEmail, setWaitlistEmail] = useState("")
   const [waitlistPhone, setWaitlistPhone] = useState("")
@@ -87,7 +87,7 @@ export default function SignInPage() {
         <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-6 font-impact">GOING</h1>
 
         {/* Description */}
-        <p className="text-lg md:text-xl font-bold text-gray-300 mb-8">
+        <p className="text-lg md:text-xl font-bold text-white mb-8">
           Enter your phone number to start or manage your reminders.
         </p>
 
@@ -98,47 +98,49 @@ export default function SignInPage() {
             placeholder="+1 (555) 123-4567"
             value={phoneNumber}
             onChange={e => setPhoneNumber(e.target.value)}
-            className="rounded px-3 py-2 bg-gray-900 border border-gray-700 text-white"
+            className="rounded px-3 py-2 bg-black border border-white text-white"
           />
 
           {/* Channel Toggle */}
           <div className="flex gap-2">
             <Button
               onClick={() => setChannel("whatsapp")}
-              className={`flex-1 font-bold ${channel === "whatsapp" ? "bg-green-600 hover:bg-green-700" : "bg-gray-800 hover:bg-gray-700"}`}
+              className={`flex-1 font-bold ${channel === "whatsapp" ? "bg-red-600 hover:bg-red-700" : "bg-white hover:bg-red-700"}`}
             >
               WhatsApp
             </Button>
+            {/*
             <Button
               onClick={() => setChannel("sms")}
-              className={`flex-1 font-bold ${channel === "sms" ? "bg-green-600 hover:bg-green-700" : "bg-gray-800 hover:bg-gray-700"}`}
+              className={`flex-1 font-bold ${channel === "sms" ? "bg-red-600 hover:bg-red-700" : "bg-white hover:bg-red-700"}`}
             >
               SMS
             </Button>
+            */}
           </div>
 
           <Button
             disabled={!isValid}
             onClick={handleSignIn}
-            className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2"
+            className="mt-2 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2"
           >
             Start Reminders <ArrowRight className="ml-2" size={16} />
           </Button>
         </div>
 
         {/* Brutal Mode Section */}
-        <div className="bg-gray-900 border-2 border-gray-700 p-6 rounded-lg text-left mb-10">
+        <div className="bg-black border-2 border-red-600 p-6 rounded-lg text-left mb-10">
           <div className="flex items-center mb-3">
             <Skull className="h-6 w-6 text-red-500 mr-2" />
             <h2 className="text-2xl font-black text-red-400 font-impact">BRUTAL MODE</h2>
           </div>
           <p className="text-red-400 font-bold text-sm mb-2">Brutal Mode is coming soon. Join the waitlist to be the first to try it.</p>
           {waitlistCount !== null && (
-            <p className="text-gray-400 font-bold mb-2">{waitlistCount} people are already on the waitlist.</p>
+            <p className="text-white font-bold mb-2">{waitlistCount} people are already on the waitlist.</p>
           )}
 
           {waitlistSubmitted ? (
-            <p className="text-green-400 font-bold mt-4">Thanks for joining the waitlist!</p>
+            <p className="text-red-400 font-bold mt-4">Thanks for joining the waitlist!</p>
           ) : (
             <form onSubmit={handleWaitlistSubmit} className="flex flex-col gap-3 mt-4">
               <Input
@@ -147,14 +149,14 @@ export default function SignInPage() {
                 placeholder="Email address"
                 value={waitlistEmail}
                 onChange={e => setWaitlistEmail(e.target.value)}
-                className="bg-gray-800 border-gray-700 text-white"
+                className="bg-black border-white text-white"
               />
               <Input
                 type="tel"
                 placeholder="Phone number (optional)"
                 value={waitlistPhone}
                 onChange={e => setWaitlistPhone(e.target.value)}
-                className="bg-gray-800 border-gray-700 text-white"
+                className="bg-black border-white text-white"
               />
               <Button
                 type="submit"
@@ -167,7 +169,7 @@ export default function SignInPage() {
         </div>
 
         {/* Footer Note */}
-        <p className="text-xs text-gray-600 mt-4 font-bold">
+        <p className="text-xs text-white mt-4 font-bold">
           <Smartphone size={12} className="inline-block mr-1" />
           Standard messaging rates may apply.
         </p>
