@@ -15,10 +15,7 @@ export async function startReminders({
 }) {
   const res = await fetch(`${API_BASE}/start`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token") ?? ""}`,
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       phone_number,
       messages,
@@ -33,10 +30,7 @@ export async function startReminders({
 export async function stopReminders(phone_number: string) {
   const res = await fetch(`${API_BASE}/stop`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token") ?? ""}`,
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ phone_number }),
   });
   return res.json();
@@ -45,23 +39,13 @@ export async function stopReminders(phone_number: string) {
 export async function markDone(phone_number: string) {
   const res = await fetch(`${API_BASE}/done`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token") ?? ""}`,
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ phone_number }),
   });
   return res.json();
 }
 
 export async function getStatus(phone_number: string) {
-  const res = await fetch(
-    `${API_BASE}/status?phone_number=${encodeURIComponent(phone_number)}`,
-    {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token") ?? ""}`,
-      },
-    }
-  );
+  const res = await fetch(`${API_BASE}/status?phone_number=${encodeURIComponent(phone_number)}`);
   return res.json();
-}
+} 
